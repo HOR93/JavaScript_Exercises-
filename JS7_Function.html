@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+
+<header>
+  <title>Função</title>
+
+  <style>
+    body{
+      background-color: aqua;
+      color: black;
+
+    }
+
+    button{
+      background-color: black;
+      color: wheat;
+    }
+
+    p{
+      color: black;
+      font-size: large;
+      font-weight: 100;
+    }
+  </style>
+
+</header>
+
+<body>
+
+  <p>
+    Testando as funções no codigo do pedra, papel e tesoura
+  </p>
+
+  <button onclick="pedra()"> <!--Aqui vai só a função, ele é sempre feita no script-->
+    pedra
+  </button>
+
+  <!--papel é diferente, Primeira logica da função no script e o resto no botão -->
+  <button onclick="
+      //const computador_jogada = Computador_vez(); // pode ser usado assim também mas return na original, retornando a variavel computador
+        Computador_vez(); // função criada no script
+
+        if(computador === 'pedra'){
+        resultado = 'vitoria';
+      } else if (computador === 'papel'){
+        resultado = 'empate';
+      }else if (computador === 'tesoura'){
+        resultado = 'perdeu';
+      }
+
+      console.log(`Voce escolheu papel e PC escolheu ${computador}, logo, resultado: ${resultado}`)">
+    papel</button>
+
+  <button onclick="tesoura()"> <!--Aqui vai só a função, ele é sempre feita no script-->
+    tesoura</button>
+
+<script>
+  // função é sempre feita no script
+  // Computador_vez é outra forma de fazer a função, com parte a primeira parte de selecionar os valores aleatorios na função, e o resto no onclick() no proprio botão
+  // pedra e tesoura pega toda a logica e aplica na função ao inves de pegar partes
+
+  let resultado = ''; // para funcionar dessa forma, utilizando o Computador_vez(), é necessario fazer as variaveis globais, portanto tem que tirar da função e botão onlick" "
+  let computador = ''; // para funcionar dessa forma, utilizando o Computador_vez(), é necessario fazer as variaveis globais, portanto tem que tirar da função e botão onlick" "
+
+  function Computador_vez(){
+    Numeros_aleatorios = Math.random();
+    // let computador = '';
+
+      if (Numeros_aleatorios >= 0 && Numeros_aleatorios <= 1/3){
+        computador = 'pedra';
+      } else if (Numeros_aleatorios >= 1/3 && Numeros_aleatorios <=2/3){
+        computador = 'papel';
+      }else if (Numeros_aleatorios >= 2/3 && Numeros_aleatorios <=3/3){
+        computador = 'tesoura'
+      }
+
+      //return computador;
+
+  }
+  function pedra(){
+    Numeros_aleatorios = Math.random();
+      let computador = '';
+      let resultado = '';
+
+      if (Numeros_aleatorios >= 0 && Numeros_aleatorios <= 1/3){
+        computador = 'pedra';
+      } else if (Numeros_aleatorios >= 1/3 && Numeros_aleatorios <=2/3){
+        computador = 'papel';
+      }else if (Numeros_aleatorios >= 2/3 && Numeros_aleatorios <=3/3){
+        computador = 'tesoura'
+      }
+
+      if(computador === 'pedra'){
+        resultado = 'empate';
+      } else if (computador === 'papel'){
+        resultado = 'perdeu';
+      }else if (computador === 'tesoura'){
+        resultado = 'vitoria';
+      }
+
+      console.log(`Voce escolheu pedra e PC escolheu ${computador}, logo, resultado: ${resultado}`)
+  }
+/*  function papel(){
+    Numeros_aleatorios = Math.random();
+      let computador = '';
+      let resultado = '';
+
+      if (Numeros_aleatorios >= 0 && Numeros_aleatorios <= 1/3){
+        computador = 'pedra';
+      } else if (Numeros_aleatorios >= 1/3 && Numeros_aleatorios <=2/3){
+        computador = 'papel';
+      }else if (Numeros_aleatorios >= 2/3 && Numeros_aleatorios <=3/3){
+        computador = 'tesoura'
+      }
+
+      if(computador === 'pedra'){
+        resultado = 'vitoria';
+      } else if (computador === 'papel'){
+        resultado = 'empate';
+      }else if (computador === 'tesoura'){
+        resultado = 'perdeu';
+      }
+
+      console.log(`Voce escolheu papel e PC escolheu ${computador}, logo, resultado: ${resultado}`)
+  }
+      */
+  function tesoura(){
+    Numeros_aleatorios = Math.random();
+      let computador = '';
+      let resultado = '';
+
+      if (Numeros_aleatorios >= 0 && Numeros_aleatorios <= 1/3){
+        computador = 'pedra';
+      } else if (Numeros_aleatorios >= 1/3 && Numeros_aleatorios <=2/3){
+        computador = 'papel';
+      }else if (Numeros_aleatorios >= 2/3 && Numeros_aleatorios <=3/3){
+        computador = 'tesoura'
+      }
+
+      if(computador === 'pedra'){
+        resultado = 'perdeu';
+      } else if (computador === 'papel'){
+        resultado = 'vitoria';
+      }else if (computador === 'tesoura'){
+        resultado = 'empate';
+      }
+
+      console.log(`Voce escolheu tesoura e PC escolheu ${computador}, logo, resultado: ${resultado}`)
+  }
+
+</script>
+
+</body>
+
+</html>
