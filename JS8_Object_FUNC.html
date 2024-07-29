@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+
+  <header>
+    <title>Testando objetos e nova função</title>
+  </header>
+
+  <body>
+    <button onclick="jogada('pedra')">
+      pedra
+    </button>
+
+    <button onclick="jogada('papel')">
+      papel
+    </button>
+
+    <button onclick="jogada('tesoura')">
+      tesoura
+    </button>
+
+    <button onclick="reset()"> <!--pega a função reset para resetar os valores do objeto -->
+      resetar
+    </button>
+
+
+
+    <script>
+      //const se não for mudar o valor
+      let pontuação = JSON.parse(localStorage.getItem('pontuação')); // 2 - vamos pegar com getItem a pontuação ! SALVA ! em localStorage, porem, esta em JSON quando transformamos, logo, precisamos reverter isso e pegar os valores inteiros, então usa JSON.parse, nesta logica, o pontuação = JSON.parse(localStorage.getItem('pontuação')) vai restaurar o OBJETO e pegar os valores numeros de forma simplificado
+
+      if (pontuação === null){ // 4 - aqui resolve o problema do null, se não tiver isso aqui, então ele vai dar problema de null pois não consegue encontrar os valores.
+        pontuação = {
+          vitoria: 0,
+          perdeu: 0,
+          empate: 0
+        }
+      }
+
+    /*  const pontuação = { // OBJETO, se for usar de forma normal
+        vitoria: 0,
+        perdeu: 0,
+        empate: 0
+      };
+    */
+
+
+      function reset(){
+        pontuação.vitoria = 0;
+        pontuação.perdeu = 0;
+        pontuação.empate = 0;
+        localStorage.removeItem('pontuação'); // 3 -  resolver o problema do NULL por não conseguir fazer leitura
+      }
+
+      function jogada(jogador){         // essa função vai para o botão, jogada('pedra'), dessa forma, precisa apenas do botão escolhido.
+        const jogada_pc = ComputadorJogada(); // função dentro de outra função
+
+        let resultado = '';
+
+          if (jogador === 'pedra'){       // sua escolha de botão, jogada('pedra')
+
+            if(jogada_pc === 'papel'){    // escolha aleatoria do Computador
+              resultado = 'perdeu';
+            } else if (jogada_pc === 'tesoura'){
+              resultado = 'ganhou';
+            } else if (jogada_pc === 'pedra'){
+              resultado = 'empate';
+            }
+          }
+//-------------------------------------------------------------------------------------------------------------------------------------          
+          else if (jogador === 'papel'){ // sua escolha de botão
+
+            if (jogada_pc === 'pedra'){   // escolha aleatoria do Computador
+              resultado = 'ganhou';
+            } else if (jogada_pc === 'papel'){
+              resultado = 'empate';
+            } else if (jogada_pc === 'tesoura'){
+              resultado = 'perdeu';
+            }
+          }
+//-------------------------------------------------------------------------------------------------------------------------------------          
+          else if (jogador === 'tesoura'){ // sua escolha de botão
+            if(jogada_pc === 'pedra'){      // escolha aleatoria do Computador
+              resultado = 'perdeu';
+            } else if (jogada_pc === 'papel'){
+              resultado = 'ganhou'
+            } else if (jogada_pc === 'tesoura'){
+              resultado = 'empate'
+            }
+          }
+//-------------------------------------------------------------------------------------------------------------------------------------
+
+          if (resultado === 'ganhou'){ // logica pega o resultado e adiciona valor no objeto especifico.
+            pontuação.vitoria = pontuação.vitoria + 1;
+          } else if (resultado === 'perdeu'){
+            pontuação.perdeu = pontuação.perdeu +1;
+          } else if (resultado === 'empate'){
+            pontuação.empate = pontuação.empate +1;
+          }
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
+          localStorage.setItem('pontuação', JSON.stringify(pontuação)); // 1 - para ! SALVAR ! os valores da pontuação, localStorage vai guardar os valores inteiros, mas, localStorage, só aceita string, então usa o stringify e transforma em JSON, nessa logica, o localStorage.setItem('pontuação', JSON.stringify(pontuação)) transforma o OBJETO anterior em JSON
+
+
+          console.log(`Voce escolheu ${jogador} e o PC escolheu ${jogada_pc}, logo, resultado: ${resultado}`);
+          console.log(`Seu numero de vitoria é ${pontuação.vitoria}, derrota ${pontuação.perdeu} e empates ${pontuação.empate}`); // objeto + pontuação
+      }
+
+      function ComputadorJogada(){ // essa aqui vai dentro da função jogada(jogador);
+        numeros_aleatorios = Math.random();
+        computador = '';
+
+        if(numeros_aleatorios >= 0 && numeros_aleatorios <= 1/3){
+          computador = 'pedra';
+        }if(numeros_aleatorios >= 1/3 && numeros_aleatorios <= 2/3){
+          computador = 'papel';
+        }if(numeros_aleatorios >= 2/3 && numeros_aleatorios <= 3/3){
+          computador = 'tesoura';
+        }
+        return computador; // sempre um return se for retornar algo para uma função ou resultado
+      }
+
+    </script>
+
+
+  </body>
+
+</html>
