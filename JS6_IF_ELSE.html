@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+  <header>
+    <title>Papel, pedra e tesoura simples</title>
+  </header>
+
+  <style>
+    body{
+      background-color: whitesmoke;
+
+    }
+  </style>
+
+  <body>
+    <p>
+      Jogo do Pedra, papel e tesoura simples
+    </p>
+
+    
+    <!-- BOTÃO PEDRA -->
+    <!-- no Onclick, fica a logica do botão -->
+    <button onclick=" 
+
+    const Numero_Aleatorio = Math.random();
+    let Jogada_Computador = '';
+    let Resultado = '';
+
+    if (Numero_Aleatorio >= 0 && Numero_Aleatorio <= 1/3){ // logica geral da situação
+      Jogada_Computador = 'pedra';
+    }else if (Numero_Aleatorio >= 1/3 && Numero_Aleatorio <= 2/3){
+      Jogada_Computador = 'papel';
+    }else if (Numero_Aleatorio >= 2/3 && Numero_Aleatorio <= 3/3){
+      Jogada_Computador = 'tesoura';
+    }
+    //console.log(Jogada_Computador);
+
+    if (Jogada_Computador ==='pedra'){ // logica pra PEDRA
+      Resultado = 'Pedra com Pedra da empate!';
+    }else if (Jogada_Computador === 'papel'){
+      Resultado = 'Papel ganha de Pedra, perdeu!';
+    }else if (Jogada_Computador ==='tesoura'){
+      Resultado = 'Pedra ganha de tesoura, Ganhou!';
+    }
+    console.log(`voce escolheu Pedra! e o Computador escolheu ${Jogada_Computador}, portanto, ${Resultado}`);
+    ">
+      Pedra <!-- Aqui o nome do botão, o PC não sabe que você escolheu Pedra, mas ele sabe a logica aplicada, logo, botão pedra escolhida, segue a logica acima, onde, se o resultado do PC também deu pedra, vai dar empate igual escolhemos. -->
+    </button>
+
+    <!-- BOTÃO PAPEL -->
+    <button onclick="
+    let Numero_Aleatorio2 = Math.random();
+    let Jogada_Computador2 = '';
+    let Resultado2 = '';
+
+    if (Numero_Aleatorio2 >= 0 && Numero_Aleatorio2 <=1/3){
+      Jogada_Computador2 = 'pedra';
+    } else if (Numero_Aleatorio2 >= 1/3 && Numero_Aleatorio2 <=2/3){
+      Jogada_Computador2 = 'papel';
+    } else if (Numero_Aleatorio2 >= 2/3 && Numero_Aleatorio2 <=3/3){
+      Jogada_Computador2 = 'tesoura';
+    }
+
+    if (Jogada_Computador2 === 'papel'){ // logica pra PAPEL
+      Resultado2 = 'papel com papel da empate!';
+    }else if (Jogada_Computador2 === 'pedra'){
+      Resultado2 = 'Papel com Pedra, você ganhou!'
+    }else if (Jogada_Computador2 === 'tesoura'){
+      Resultado2 = 'papel com tesoura da você perdeu!'
+    }
+
+    console.log(`você escolheu papel e o Computador ${Jogada_Computador2}, logo ${Resultado2}`);
+    ">
+      Papel
+    </button>
+
+    <!-- BOTÃO TESOURA -->
+    <button onclick="
+    Numero_Aleatorio3 = Math.random();
+    Jogada_Computador3 = '';
+    Resultado3 = '';
+
+    if (Numero_Aleatorio3 >= 0 && Numero_Aleatorio3 <= 1/3){
+      Jogada_Computador3 = 'pedra';
+    }else if (Numero_Aleatorio3 >= 1/3 && Numero_Aleatorio3 <= 2/3){
+      Jogada_Computador3 = 'papel';
+    }else if (Numero_Aleatorio3 >= 2/3 && Numero_Aleatorio3 <= 3/3){
+      Jogada_Computador3 = 'tesoura'
+    }
+
+    if (Jogada_Computador3 === 'tesoura'){ // logica pra TESOURA
+      Resultado3 = 'Tesoura com Tesoura da empate!';
+    } else if (Jogada_Computador3 === 'papel'){
+      Resultado3 = 'Tesoura com papel da você ganhou!'
+    } else if (Jogada_Computador3 === 'pedra'){
+      Resultado3 = 'Tesoura com pedra, você se fodeu!'
+    }
+
+    console.log(`Voce escolheu tesoura e o Computador ${Jogada_Computador3}, portanto, ${Resultado3}`)
+    ">
+      Tesoura
+    </button>
+
+    <script>
+
+    </script>
+
+  </body>
+
+</html>
