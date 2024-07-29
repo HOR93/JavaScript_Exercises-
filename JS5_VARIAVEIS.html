@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+  <header>
+    <title>teste carrinho</title>
+
+  </header>
+
+  <body>
+
+    <button onclick="console.log(`Quantidade no carrinho: ${quantidade}`)"> <!-- `` -->
+      Quantidade
+    </button>
+    
+    <button onclick="console.log(`Adicionar mais 1: ${quantidade = quantidade+1}`)">
+      adicionar ao carrinho
+    </button>
+
+    <button onclick="console.log(`Adicionar mais 2: ${quantidade = quantidade+2}`)">
+      +2
+    </button>
+
+    <button onclick="console.log(`Adicionar mais 3: ${quantidade = quantidade+3}`)">
+      +3
+    </button>
+
+    <button onclick="console.log(`nova quantidade: ${quantidade = 0}`)">
+      resetar o carrinho
+    </button>
+
+    <script>
+      
+      let quantidade = 0; // const nunca muda o valor, diferente de let que pode mudar, var não é mais usado
+
+    </script>
+  </body>
+</html>
