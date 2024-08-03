@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+  <header>
+    <title>ultimo projeto de DOM</title>
+
+    <style>
+/* -------------------- -------------------- -------------------- -------------------- -------------------- -------------------- */      
+      body, html{                    /* codigo para botar tudo no centro */
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+
+      body{                          /* codigo para botar tudo no centro */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background-color: whitesmoke;
+        text-align: center;
+      }
+/* -------------------- -------------------- -------------------- -------------------- -------------------- -------------------- */
+      p{
+        color: black;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 800;
+        font-size: larger;
+      }
+
+      input{
+        color: black;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border: 0ch;
+        font-size: larger;
+      }
+
+      button{
+        color: black;
+        background-color: yellow;
+        font-size: larger;
+      }
+
+    </style>
+  </header>
+
+  <body>
+
+    <p>Shoope e Aliexpress novo imposto</p>
+
+     <!-- vamos fazer com event também, para ativar quando clicamos enter, depois pode ser feito utilizando funcão -->
+    <input placeholder="digite aqui o valor" class = 'preço_produto' onkeydown="
+    if(event.key === 'Enter'){
+      Calc_Imposto();
+
+    /* apertar_enter(event); */
+    } ">
+
+
+    <button onclick="Calc_Imposto()">Calcular</button>
+
+    <p class ="Resultados_calculos"></p>
+
+
+    <script>
+
+      /*
+      function apertar_Enter(event){
+        if(event.key==='Enter'){
+          Calc_Imposto();
+        }
+      }
+      */
+
+      function Calc_Imposto(){
+        const input = document.querySelector('.preço_produto'); // passei o html <input> para JS
+        let input_preço = Number(input.value); // input.value pega o que for escrito no input e passa para uma variavel, se for valor numero, bota Number para converter automaticamente
+
+        if(input_preço <= 286){
+          input_preço = input_preço + input_preço*0.2;
+        } else if (input_preço > 286){
+          input_preço = input_preço + input_preço*0.6;
+        }
+
+        document.querySelector('.Resultados_calculos').innerHTML = `Com o novo Roub.. digo, imposto do Governo, sua compra vai custar: R$ ${input_preço}`
+      }
+
+    </script>
+
+
+  </body>
+
+
+</html>
