@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+  <header>
+    <title>Testando Dom no projeto</title>
+    
+  </header>
+
+  <body>
+    <p>Youtube Subscribe Button</p>
+
+    <!-- Começa com a classe, depois cria uma variavel e com queryselector, selecione a class utilizando ".", depois faz o javascript para mudança total com .innerHtml-->
+    <button class = 'primeiro_passo_botão' 
+    onclick="
+    const botão = document.querySelector('.primeiro_passo_botão');
+
+    if (botão.innerHTML === 'Subscribe'){
+      botão.innerHTML = 'Subscribed';
+    }else{
+      botão.innerHTML = 'Subscribe';
+    }
+    "
+    >
+    Subscribe
+    </button>
+
+    <script>
+      // funciona se pegar aquilo e fizer uma função também
+    </script>
+
+  </body>
+
+</html>
