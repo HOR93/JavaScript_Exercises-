@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+  <header>
+    <title>Lembrete com calendario</title>
+
+    <style>
+      p{
+        font-weight: bold;
+        font-size: 12px;
+      }
+
+      button{
+        margin-left: 5px;
+      }
+    </style>
+
+  </header>
+
+  <body>
+    <p>Projeto Lembrete com calendario</p>
+    <input placeholder="Lembrete.." class="input_lembrete">
+    <input type="date" class="input_data"> 
+
+    <button onclick="ADD_Lembrete()">Adicionar</button>
+    <button onclick="DEL_Lembrete()">Deletar</button>
+    <button onclick="RESET_Lembrete()">Resetar</button>
+
+    <div class="div_lembrete"></div>
+
+    <script src="scripts/JS11_LBTDATA.js"></script>
+  </body>
+
+
+
+</html>
