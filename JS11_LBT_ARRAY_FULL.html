@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+  <header>
+    <title>Refazendo lembrete com DATA</title>
+
+    <style>
+      button{
+        padding: 20px;
+        background-color: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      input{
+        padding: 30px;
+        border: none;
+      }
+      .BTN_ESP{
+        margin-left: 430px;
+        background-color: red;
+      }
+    </style>
+  </header>
+
+  <body>
+    
+    <p>Projeto Lembrete</p>
+
+    <input class="LEMBRETE" placeholder="escreva seu lembrete">
+    <input class="DATA" type="datetime-local">
+
+    <button onclick="Adicionar_Lembrete()">Adicionar</button>
+    <button onclick="Resetar_Lembrete()">Resetar</button>
+
+    <div class="imprimir_lembrete"></div>
+
+    <script src="scripts/JS11_LBT_ARRAY_FULL.js"></script>
+  </body>
+</html>
