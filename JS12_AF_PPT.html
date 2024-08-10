@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+  <header>
+    <title>Funções avançadas com Jogo PPT</title>
+
+    <link rel="stylesheet" href="css/JS12_AF_PPT.css">
+
+  </header>
+
+  <body>
+
+    <p class="titulo">Pedra, Papel e Tesoura v2.0</p>
+
+    <div class="button-container"> <!-- esse div é pra botar os botões todos juntos-->
+
+      <button class="add_evento"> <!--Aqui utilizo o addEventListener-->
+        <img src="pedra-emoji.png" class="Fotos_PPT">
+      </button>
+    
+      <button onclick="Jogo_PPT('papel')"> <!--Aqui e adiante usando onclick-->
+        <img src="papel-emoji.png" class="Fotos_PPT">
+      </button>
+
+      <button onclick="Jogo_PPT('tesoura')">
+        <img src="tesoura-emoji.png" class="Fotos_PPT">
+      </button>
+
+      <button class="botão_zerar" onclick="Zerar()">
+        <img src="back.png" class="Fotos_PPT">
+      </button>
+
+      <button class="Auto_play" onclick="autoplay()">Auto play</button>
+
+    </div>
+
+
+    <p class="Resultado_Partida"></p>
+    <p class="Jogadas"></p>
+    <p class="Cont_Geral"></p>
+
+    <script src="scripts/JS12_AF_PPT.js"></script>
+  </body>
+
+</html>
+
+<!--
+1 - é feito os botões, depois relaciona CSS na header e JS no script
+2 - depois faz os paragrafos onde vai sair o que espera escrever
+3 - cria onclick em todos os botões, adiciona tag de imagens nos botões e uma classe
+    para fazer os estilo de como as fotos vão ficar
+4 - já pra finalizar, faz uma DIV especifica para cada botão, dessa forma, é melhor para
+    organizar na tela -->
