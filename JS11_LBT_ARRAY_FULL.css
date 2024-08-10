@@ -1,0 +1,15 @@
+button{
+  padding: 20px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+input{
+  padding: 30px;
+  border: none;
+}
+.BTN_ESP{
+  margin-left: 100px;
+  background-color: red;
+}
