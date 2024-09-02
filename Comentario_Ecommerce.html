@@ -1,0 +1,69 @@
+<!-- Imprimir os produtos-
+  1- habilida module no html desejado | 2- depois no JS que tem os dados e manda export | 3- depois cria um JS para o HTML desejado, ali você faz uma variavel para receber o print no final | 4- depois faz um forEach(função) no JS onde esta os dados, passando um parametro para receber Products_Amazon.forEach((product) =>{ }) | 5-  pega no HTML desejado apenas a DIV que tem os produtos, copiar e passa para dentro da função | 6- modifica no anterior(5), onde esta cada parte essencial do produto, parametro.name, parametro.img, parametro.rating.stars e assim vai | 7- finaliza com queryselector = variavel que vai receber o print -->
+
+<!-- Criar interatividade para os botões de compra(Add in cart) 
+  1 - Adiciona uma classe no html onde tem add in cart | 2- faz um query pra pegar todos os botões que tenha essa classe JUNTO de um forEach e leva tudo pra uma chave button | 3- depois faça um addEventListener click | 4- Cria um novo arquivo JS para um carrinho de compras e faz um array chamado cart | 5- no html onde esta a classe do botão, na mesma linha, depois da classe, faça o data attribute para saber qual produto esta ligado a qual botão, data-product-id="${product.id}" que depois na variavel fica productId com I maiusculo | 6- dentro do event, faça uma variavel const productId = button.dataset.productId | 7- import cart do cart.js e faça um cart.push para o array, com productId: productId e quantity: 1 | 8- depois faça 3 etapas finais, veja se o produto já esta no carrinho, se estiver, adicione +1, caso contrario, faça o push pro carrinho botando (7) dentro da condição
+
+  *isso tudo pode ser feito também no proprio cart.JS, e depois mandar export das funções
+ ..............................................................................................................................................
+
+  <button class="add-to-cart-button button-primary   Adicionar_Carrinho" data-product-id="${product.id}">
+
+  document.querySelectorAll('.Adicionar_Carrinho').forEach((button) =>{ // pega todas as classes do HTML que tenha Adicionar_Carrinho  
+
+  button.addEventListener('click', () =>{ // adiciona o evento para cara variavel chave button
+    const productId = button.dataset.productId;
+
+    let matchingItem;
+
+    cart.forEach((item) =>{ // loop no carrinho
+
+      if (productId === item.productId){ // veja se o produto já esta no carrinho
+          matchingItem = item;
+      }
+    });
+
+    if(matchingItem) { // se a condição for verdadeira
+      matchingItem.quantity += 1; // adiciona +1 no carrinho
+    } else {                // caso contrario, se não tiver no carrinho, adiciona no carrinho
+      cart.push({
+        productId: productId,
+        quantity: 1
+      });
+    }
+
+    console.log(cart);
+  });
+
+});
+-->
+
+<!-- Adicionar|print quantidade no carrinho dos itens selecionados
+    1- Dentro da logica do botão, cria variavel let quantity = 0 | 2- vai no html( header - amazon.html) do carrinho e procure onde esta o icone do carrinho e faça uma classe, mude a quantidade para 0 | 3- depois faz um forEach no cart com uma chave para receber esse esses itens | 4- dentro do foreach pegue a variavel quantity += chave.quantity | 5- finaliza pegando a classe do html e query com innerhtml 
+
+    *isso tudo pode ser feito também no proprio cart.JS, e depois mandar export das funções
+    -->
+ 
+<!-- Pagina do Checkout 12:53
+    1 - Começamos fazendo duas funções, uma para adicionar ao carrinho e atualizar quantidade de itens, dentro bota os codigos relacionados, unica diferença é do adicionar ao carrinho pois tem que passar o parametro*(productId), pois a logica do carrinho, recebe o productId = data-product-id="${product.id}, depois passamos estas funções para o cart.js e mandando export destas funções, assim fica mais visual 
+    2- Crie Checkout.js e atribua modulo | 3 - dentro do cart.js, no array cart, faça dois objetos/produtos aleatorios iniciais, com id e quantity, id tem que ser igual na logica usada pra adicionar ao carrinho, ou seja, com nome de productId | 3- no checkout.js, importe cart e faça um forEach nele, e faça uma variavel const productId = chave.productID, aquele ele recebe o ID dos aleatorios iniciais adicionados no cart | 4- agora no html do checkout, pegue a DIV que corresponde aos itens e bote ele dentro do Foreach, semelhante como foi feito no amazon.js, POREM, como normalizamos os dados(adicionando aleatorios iniciais), vamos fazer mais um forEach para ver/comparar se o ID que tem no cart é igual ao id que tem no Products_Amazon(products.js).
+    5- então, para o segundo forEach, faça import Products_Amazon do products.js e crie dentro do forEach inicial, uma variavel let qualquer, essa variavel vai receber a comparação.
+    6- Em seguida faça o outro forEach em Products_Amazon e uma condição onde chave.id = productId, se for igual, a variavel de comparação = chave, dessa forma, ele compara se a chave.id (que recebeu os parametros do Products_Amazon) é igual ao productId(que recebeu os parametros do cart), unica mudança nessa parte de receber é que no forEach do Products_Amazon, ele adicionou uma condição.
+    7- depois na Div do html, substitua os nomes, id, preço com a variavel.name, id e etc, só quantity que é do cart, resto muda normal.
+    8- cria uma let variavel no inicio pra receber as strings, soma ela dentro do forEach com a DIV, depois vai no html do checkout e veja onde ta a div que tem as div dos produtos "order-summary Print_Produtos_checkout" e faz uma classe nela, e depois com query e innerhtml finalize, depois apague as div que tinha os itens div class="cart-item-container".
+
+  cart.forEach((cartItem) => {
+  const productId = cartItem.productId;
+
+
+  let matchingProduct;
+
+    Products_Amazon.forEach((product) => {
+      if(product.id === productId){
+        matchingProduct = product;
+      }
+    });
+
+    `DIV dos negocios `
+
+    ->
