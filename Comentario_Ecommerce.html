@@ -70,8 +70,9 @@
 
   -->
   
-<!-- Pagina Checkout P2 13:16 
+<!-- Pagina Checkout P2 13:16  e 13:47
   1- arruma a questão do preço, fazendo uma nova js e criando uma função, depois substitui onde tem preço com variavel.priceCentes | 2- depois arruma a opção de delivery, vai no html onde tem essa parte, eles tem atualmente o mesmo nome, se clicar em um, acaba por modificar todos, então a melhor opção é mudar para cada uma com id correspondente no checkout.js "delivery-option-${matchingProduct.id}".
+
   2- Agora é a parte para remover um produto no checkout, procure no html onde esta o div do botão deletar e crie uma nova classe "Deletar_Item" | 3- depois no JS faça uma query all para pegar todos os botões de deletar eventualmente na pagina e faça um forEach junto com uma chave para receber estes botões, e dentro dele, faça um chave.eventListner, SEMELHANTE ao que foi feito no botão interativo. 
 
   document.querySelectorAll('.Deletar_Item').forEach((link) =>{
@@ -82,9 +83,13 @@
 
   });
   
-  3- ainda no html, faça um data attribute para alinha cada botão com o id do produto | 4- agora no chave.eventlistener, faça uma const variavel =  chave.dataset."nome do data attribute".
-  5- agora é feito a função para deletar o item no cart, vai no cart.js e cria uma função de deletar, que vai criar um novo array, fazer um loop no cart e vai adicionar todos os produtos no cart exceto o parametro dado na função, que vai ser o productId | 6- finalize fazendo o cart = newcart e de export na função, não esquecer de mudar cart para LET.
+  3- ainda no html, do passo 2, faça um data attribute para alinha cada botão com o id do produto
+  4- agora no chave.eventlistener, faça uma const variavel =  chave.dataset."nome do data attribute".
+
+  5- agora é feito a função para deletar o item no cart, vai no cart.js e cria uma função de deletar com parametro productId, cria um novo array cart, faça um forEach no cart e vai adicionar uma condição if(cartItem.productId !== productId), se o id da chave for diferente do selecionado para deletar, então adiciona(push) para o novo array todos os produtos exceto o parametro dado na função, que vai ser o productId | 6- finalize fazendo o cart = newcart e de export na função, não esquecer de mudar cart para LET.
+
   7- voltando para checkout, import a função do cart.js, e adicione ela no eventlistener com o parametro do data attribute que é productId.
+  8- finalize apagando da pagina o item usando DOM e remove(), para pegar o item usando DOM, procure no checkout.js, a DIV correspondente a todo o carrinho e adicione a ela o id dos produtos para mostrar qual é qual produto selecionado na pagina, <div class="cart-item-container Container_Apagar-${matchingProduct.id}"> | 9- depois, no eventlistner, use query e `` adicione esta classe, mas mudando matchingProduct.id para productId da variavel const, e guarde isso em uma variavel const.
+  10- agora, para remover da pagina o produto usando DOM, podemos usar a ferramenta do js/html chamada remove(), ela deleta da pagina qualquer div, então, basta no eventlistner, pegar a variavel const onde foi guardado o item pego pelo DOM, no passo 8 e 9 acima e fazer variavel.remove();
 -->
 
-    -->
