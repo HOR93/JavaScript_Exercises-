@@ -86,10 +86,24 @@
   3- ainda no html, do passo 2, faça um data attribute para alinha cada botão com o id do produto
   4- agora no chave.eventlistener, faça uma const variavel =  chave.dataset."nome do data attribute".
 
-  5- agora é feito a função para deletar o item no cart, vai no cart.js e cria uma função de deletar com parametro productId, cria um novo array cart, faça um forEach no cart e vai adicionar uma condição if(cartItem.productId !== productId), se o id da chave for diferente do selecionado para deletar, então adiciona(push) para o novo array todos os produtos exceto o parametro dado na função, que vai ser o productId | 6- finalize fazendo o cart = newcart e de export na função, não esquecer de mudar cart para LET.
+  5- agora é feito a função para deletar o item no cart, vai no cart.js e cria uma função de deletar com parametro productId, cria um novo array novo_cart, faça um forEach no cart e vai adicionar uma condição if(cartItem.productId !== productId), se o id da chave for diferente do selecionado para deletar, então adiciona(push) para o novo array todos os produtos exceto o parametro dado na função, que vai ser o productId, isso garante que apenas os itens que não correspondem ao productId fornecido permaneçam no carrinho. 
+  6- finalize fazendo o cart = newcart e de export na função, não esquecer de mudar cart para LET.
 
   7- voltando para checkout, import a função do cart.js, e adicione ela no eventlistener com o parametro do data attribute que é productId.
   8- finalize apagando da pagina o item usando DOM e remove(), para pegar o item usando DOM, procure no checkout.js, a DIV correspondente a todo o carrinho e adicione a ela o id dos produtos para mostrar qual é qual produto selecionado na pagina, <div class="cart-item-container Container_Apagar-${matchingProduct.id}"> | 9- depois, no eventlistner, use query e `` adicione esta classe, mas mudando matchingProduct.id para productId da variavel const, e guarde isso em uma variavel const.
   10- agora, para remover da pagina o produto usando DOM, podemos usar a ferramenta do js/html chamada remove(), ela deleta da pagina qualquer div, então, basta no eventlistner, pegar a variavel const onde foi guardado o item pego pelo DOM, no passo 8 e 9 acima e fazer variavel.remove();
 -->
+
+
+<!-- LocalStorage 13:49
+ 1- Crie uma função para salvar o array cart do cart.js no localstorage, localStorage.setItem('cart', JSON.stringify(cart)).
+ 2- Depois, como queremos salvar a situação atual do que esta dentro do carrinho, botamos essa função dentro das funções relacionadas a adicionar ao carrinho e remover do carrinho, pois são essenciais o update dos produtos nessas funções ligadas aos botões no html.
+ 3- Agora na variavel cart, vamos pegar o localstorage, cart = JSON.parse(localStorage.getItem('cart')).
+ 4- Pra finalizar, vamos adicionar uma condição, caso o localstorage não encontre nada ou null no carrinho, então fazemos uma condição de !cart, ou seja, se não tiver nada no carrinho, ele adiciona um objeto com produtos dentro, no caso, cart = o que já tinha antes, dois objetos com productId: id do produtos, quantity: qualquer que você desejar por exemplo:
+   {
+    productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
+    quantity: 1
+  }]
+
+ -->
 
